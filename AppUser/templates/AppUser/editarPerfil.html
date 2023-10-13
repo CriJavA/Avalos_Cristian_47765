@@ -1,0 +1,26 @@
+{% extends "AppUser/master.html" %}
+{% load static %}
+
+{% block services %}
+{% endblock %}
+
+{% block portfolios %}
+{% endblock %}
+
+{% block about %}
+{% endblock %}
+
+{% block team %}
+{% endblock %}
+
+{% block clients %}
+{% endblock %}
+
+{% block contact %}
+<form action="" method="POST">{% csrf_token %}
+    <table>
+        {{FormEdit.as_table}}
+    </table>
+    <button type="submit">Editar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "AppUser/master.html" %}
+{% load static %}
+
+{% block navi %}
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'Inicio' %}"><img src="{% static 'AppUser/Home/assets/img/navbar-logo.svg' %}" alt="..." /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                {% if request.user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'Contacto' %}">Contactanos</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'Logout' %}">Log out</a></li>
+                <li class="nav-item"><a class="nav-link" href="">{{user.username}}</a></li>
+                {% with user.avatar_set.first as miAvatar %}
+                {% if miAvatar %}
+                <img src="{{miAvatar.imagen.url}}" alt="Sin imagen" style="max-width: 50px;">
+                {% endif %}
+                {% endwith %}
+                {% else %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'Contacto' %}">Contactanos</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'Registro' %}">Registrarse</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block services %}
+{% endblock %}
+
+{% block portfolios %}
+{% endblock %}
+
+{% block about %}
+{% endblock %}
+
+{% block team %}
+{% endblock %}
+
+{% block clients %}
+{% endblock %}
+
+{% block contact %}
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Acerca de mi</h2>
+                    <h3 class="section-subheading text-muted">Proyecto para Coderhouse...</h3>
+                </div>
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    <div class="col-md-6">
+                            <div class="form-group form-group-textarea mb-md-0">
+                                <!-- Message input-->
+                                <textarea class="form-control" id="message" placeholder="Me presento, Soy Cristian Avalos *" ></textarea>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">Se requiere de un mensaje.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Submit success message-->
+                    <!---->
+                    <!-- This is what your users will see when the form-->
+                    <!-- has successfully submitted-->
+                    <div class="d-none" id="submitSuccessMessage">
+                        <div class="text-center text-white mb-3">
+                            <div class="fw-bolder">Form submission successful!</div>
+                            To activate this form, sign up at
+                            <br />
+                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </section>
+{% endblock %}

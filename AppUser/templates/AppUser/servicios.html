@@ -1,0 +1,29 @@
+{% extends "AppUser/masterBrowser.html" %}
+{% load static %}
+{% csrf_token %}
+
+<!-- Header-->
+{% block encabezado %}
+<header class="bg-dark py-5" src="{% static 'AppItems/BrowserShop/assets/img/portfolio/header-bg.jpg' %}">
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-12 col-md-4 offset-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h1>CARGA DE SERVICIOS</h1>
+                    <form action="" method="POST"> {% csrf_token %}
+                        <table>
+                            {{formKeyC.as_table}}
+                        </table>
+                        <input type="submit" value="Confirmar">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+<!-- Section-->
+{% block itemSection %}
+{% endblock %}

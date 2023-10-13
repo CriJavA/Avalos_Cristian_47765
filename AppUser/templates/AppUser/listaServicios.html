@@ -1,0 +1,35 @@
+{% extends "AppUser/masterBrowser.html" %}
+{% load static %}
+{% csrf_token %}
+
+<!-- Header-->
+{% block encabezado %}
+<header class="bg-dark py-5" src="{% static 'AppItems/BrowserShop/assets/img/portfolio/header-bg.jpg' %}">
+    <div class="container px-1 px-lg-5 my-5">
+        <div class="text-center text-black">
+            <div class="card">
+                <div class="card-body">
+                    <h1>Lstado de Publicaciones</h1>
+                    <hr>
+                    {% for x in listaServicios %}
+                    <p>Segmento de servicio: {{x.Tipo}}</p>
+                    <p>Tipo de servicio: {{x.Subtipo}}</p>
+                    <p>Precio: {{x.Precio}}</p>
+                    <p>Descripción: {{x.Descrip}}</p>
+                  
+                    <a class="btn btn-secondary" href="{% url 'EliminarServicio' x.Subtipo %}">Eliminar</a>
+                    &nbsp;
+                    <a class="btn btn-secondary" href="{% url 'EditarServicio' x.Subtipo %}">Editar</a>
+                    &nbsp;
+                    <hr>
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+<!-- Section-->
+{% block itemSection %}
+{% endblock %}

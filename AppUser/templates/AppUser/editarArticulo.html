@@ -1,0 +1,56 @@
+{% extends "AppUser/master.html" %}
+{% load static %}
+
+{% block navi %}
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'Inicio' %}"><img src="{% static 'AppUser/Home/assets/img/navbar-logo.svg' %}" alt="..." /></a>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block encabezado %}
+<header class="masthead">
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-12 col-md-4 offset-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h1>Editar publicación</h1>
+                    <hr>
+                    <form action="" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                        {{FormEdit.as_table}}
+                        <hr>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" id="" class="btn btn-primary">Editar</button>
+                            &nbsp;
+                            <a class="btn btn-secondary" href="{% url 'LstaArticulos' %}">Volver</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+
+{% block services %}
+{% endblock %}
+
+{% block portfolios %}
+{% endblock %}
+
+{% block about %}
+{% endblock %}
+
+{% block team %}
+{% endblock %}
+
+{% block clients %}
+{% endblock %}
+
+{% block contact %}
+{% endblock %}

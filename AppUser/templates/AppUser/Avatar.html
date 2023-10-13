@@ -1,0 +1,26 @@
+{% extends "AppUser/master.html" %}
+{% load static %}
+
+{% block services %}
+{% endblock %}
+
+{% block portfolios %}
+{% endblock %}
+
+{% block about %}
+{% endblock %}
+
+{% block team %}
+{% endblock %}
+
+{% block clients %}
+{% endblock %}
+
+{% block contact %}
+<form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <table>
+        {{FormAvatar.as_p}}
+    </table>
+    <button type="submit">CARGAR</button>
+</form>
+{% endblock %}
